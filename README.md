@@ -2,7 +2,7 @@
 | :---          	|
 | s198022       	|
 | A1US - AOS - Code Design and Data Structures  |
-| Binary Tree Documentation |
+| Linked List Documentation |
 
 ## I. Requirements
 
@@ -11,16 +11,13 @@
 	- **Name**: BinaryTree
 
 	- **Problem Statement**:
-	Create a program that visually shows node in a tree chart and be able to insert, remove and selected specific nodes.
+	Create a program that shows how inserting and shifting around nodes by creating a LinkedList to test if the nodes are in correct order and proper function usage.
 
-	- **Problem Specifications**:  Create a node that can insert, remove, and find selected nodes without any errors or bugs
+	- **Problem Specifications**:  Create a LinkedList in C++ to show node functions
 
-2.  Output Information
-    -The program displays a window various nodes with different values in a tree root like formation.
-    - **Nodes**: A circle with a value, depending which if the first node is, goes left or right based on value's greater than or less than
 
 |
-3. ### Object Information
+2. ### Object Information
 
    **File**: Main.cpp
 
@@ -68,233 +65,190 @@
              Type: int
              Visibility: public
 
-        Name: _tree
-             Description: Call function from BinaryTree class
+        Name: UList
+             Description: Call function from UnorderedList class
              Type: class
              Visibility: public
 
-        Name: _selected
-             Description: The node being selected from BinaryTree Class
-             Type: class
-             Visibility: public
 
-     **File**: BinaryTree.cpp
+   **File**: Iterator.h
 
-     Description: Handles the creation of and removal of nodes, and to draw them to the screen
+     Description: The header class for Iterators, iterating numbers to find correct node position ect.
+
     **Attributes**
 
-         Name: isEmpty
-             Description: Check if root is empty or not
-             Type: bool
-
-         Name: insert
-             Description: Inesert the node from the Binary Tree
-             Type: bool
-             Arguments: int
-
-         Name: remove
-             Description: Removes the node from the Binary Tree
+        Name: template<typename T>
+             Description: Used for specifying that a dependent name in a template definition or declaration
+             Visibility: public
              Type: void
              Arguements: int
-
-         Name: find
-             Description: If the the root node exists first
-             Type: class
-             Arguements: int
-
-         Name: draw
-             Description: Draws the root node
-             Type: void
-             Arguements: class
-
-         Name: findnode
-             Description: Check if root is empty or not
-             Type: void
-             Arguements: int, class**, class**
-
-         Name: draw
-             Description: Check if root is empty or not
-             Type: void
-             Arguements: class*, int, int, int, class*
 
      **Operations**:
 
-        Name: newNode
-             Description: Creates a new node equal to value
-             Type: class*
+        Name: Node<T>* currentNode
+             Description: The current node it is on
+             Type: Node<T>*
+             Visibility: private
 
-        Name: node
-             Description: Create a new node with a pointer
-             Type: class*
+        Name: Iterator<T> operator++(int)
+             Description: The next node in the list
+             Type: Iterator<T>
+             Visibility: public
 
-        Name: currentNode
-             Description: Create a node equal the tree (used for checks)
-             Type: class*
+        Name: Iterator<T> operator--(int)
+             Description: The previous node in the list
+             Type: Iterator<T>
+             Visibility: public
 
-        Name: parentNode Create a node equal the tree (used for checks) parent of currentNode
+        Name: T operator*();
+             Description: Returns the currentNode's info
+             Type: type T
+             Visibility: public
+
+        Name: Iterator()
              Description: 
-             Type: class*
+             Type: constructor
+             Visibility: public
 
-        Name: iterNode
-             Description: Iterator Node going down the left branch
-             Type: class
+        Name: ~Iterator()
+             Description: 
+             Type: Deconstructor
+             Visibility: public
 
-        Name: iterParent
-             Description: Parent iterator node going down the left branch parent of iterNode
-             Type: class
+        Name: Iterator(Node<T>* ptr)
+             Description: currentNode Pointer
+             Type: Iterator<T>
+             Visibility: public
 
+        Name: operator==(const Iterator<T>&)const
+             Description:  Check if node is correct position
+             Type: const Iterator<T>
+             Visibility: public
 
-   **File**: TreeNode.cpp
+        Name: operator!=(const Iterator<T>&)const
+             Description: Check if node is in a different position
+             Type: const Iterator<T>
+             Visibility: public
 
-     Description: Draws the node tree
+   **File**: List.h
 
-    **Attributes**
-
-         Name: TreeNode
-             Description: Constructor for TreeNode
-             Type: class constructor
-             Arguments: int
-
-         Name: draw
-             Description: The Draw function to draw the tree with nodes onto the screen.
-             Type: class constructor
+     Description: Header class for List, the list of nodes in the order they're in.
 
      **Operations**:
 
-        Name: Color
-             Description: Creates color for the tree draw
-             Type: class
+        Name: mCount
+             Description: The count of the list
+             Type: int
+             Visibility: protected
 
+        Name: m_first
+             Description: The first spot in the list
+             Type: Node<T>*
+             Visibility: protected
 
-   **File**: BinaryTree.h
+        Name: m_last
+             Description: The last spot in the list
+             Type: Node<T>*
+             Visibility: protected
 
-     Description: The header class for BinaryTree holds function names
-
-    **Attributes**
-
-         Name: BinaryTree
-             Description: Constructor of BinaryTree
+        Name: initializeList
+             Description: To initialize the list
+             Type: void
              Visibility: public
 
-         Name: ~BinaryTree
-             Description: Deconstructor of BinaryTree
-             Visibility: public
-
-         Name: isEmpty
-             Description:  Checks if root is empty
-             Visibility: public
+        Name: isListEmpty
+             Description: To check if the list is empty
              Type: bool
-             Arguements: const
-
-         Name: insert
-             Description: insert node function 
              Visibility: public
-             Type: void
-             Arguements: int
 
-         Name: remove
-             Description: remove node function 
+        Name: length
+             Description: The length of the list itself
+             Type: int
              Visibility: public
-             Type: void
-             Arguements: int
 
-         Name: find
-             Description: find node function 
+        Name: Iterator<T> begin
+             Description: The beginning of the list
+             Type: Iterator<T>
              Visibility: public
-             Type: class*
-             Arguements: int
 
-         Name: draw
-             Description: The ability to draw the node 
+        Name: Iterator<T> end
+             Description: The ending of the list
+             Type: Iterator<T>
              Visibility: public
-             Type: void
-             Arguements: class*
 
-         Name: findNode
-             Description: the to ability to find a specific node
-             Visibility: private
-             Type: bool
-             Arguements: int, class**, class**
+        Name: List
+             Description: The List of the nodes
+             Type: constructor
+             Visibility: public
 
-         Name: draw
-             Description: The ability to draw the node and tree
-             Visibility: private
-             Type: void
-             Arguements: class*, int, int, int, class*
+        Name: search
+             Description: Searches for the node
+             Type: virtual bool
+             Visibility: public
+
+        Name: insertFirst
+             Description: Inserts the node in the first of the list
+             Type: virtual void
+             Visibility: public
+
+        Name: insertLast
+             Description: Inserts the node in the last of the list
+             Type: virtual void
+             Visibility: public
+
+        Name: deleteNode
+             Description: Deletes the node being deleted
+             Type: virtual void
+             Visibility: public
+
+   **File**: Node.h
+
+     Description: Header class for Node
 
      **Operations**:
 
-        Name: m_pRoot
-             Description: Root of the node tree
-             Type: class
+        Name: info
+             Description: Gets the info of the node
+             Type: T class
 
-        Name: parentNode
-             Description: parentNode ponter creater
-             Type: class
-
-    **File**: TreeNode.h
-
-     Description: 
-
-    **Attributes**
-
-         Name: BinaryTree
-             Description: Constructor of BinaryTree
+        Name: next
+             Description: Next currentNode
+             Type: Node<T>*
              Visibility: public
 
-         Name: ~BinaryTree
-             Description: Deconstructor of BinaryTree
+        Name: previous
+             Description: previous currentNode
+             Type: Node<T>*
              Visibility: public
 
-         Name: isEmpty
-             Description:  Checks if root is empty
+        Name: Node<T>*
+             Description: Node<T>* constructor
+             Type: Node<T>*
              Visibility: public
-             Type: bool
-             Arguements: const
 
-         Name: insert
-             Description: insert node function 
-             Visibility: public
-             Type: void
-             Arguements: int
 
-         Name: remove
-             Description: remove node function 
-             Visibility: public
-             Type: void
-             Arguements: int
+   **File**: UnorderedList.h
 
-         Name: find
-             Description: find node function 
-             Visibility: public
-             Type: class*
-             Arguements: int
-
-         Name: draw
-             Description: The ability to draw the node 
-             Visibility: public
-             Type: void
-             Arguements: class*
-
-         Name: findNode
-             Description: the to ability to find a specific node
-             Visibility: private
-             Type: bool
-             Arguements: int, class**, class**
-
-         Name: draw
-             Description: The ability to draw the node and tree
-             Visibility: private
-             Type: void
-             Arguements: class*, int, int, int, class*
+     Description: The header class for UnorderedList
 
      **Operations**:
 
-        Name: m_pRoot
-             Description: Root of the node tree
-             Type: class
+        Name: search
+             Description: Searches for the node
+             Type: bool
+             Visibility: public
 
-        Name: parentNode
-             Description: parentNode pointer creater
-             Type: class
+        Name: insertFirst
+             Description: Inserts the node in the first of the list
+             Type: void
+             Visibility: public
 
+        Name: insertLast
+             Description: Inserts the node in the last of the list
+             Type: void
+             Visibility: public
+
+        Name: deleteNode
+             Description: Deletes the node being deleted
+             Type: void
+             Visibility: public
