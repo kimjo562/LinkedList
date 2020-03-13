@@ -8,7 +8,7 @@
 
 1. Description of Problem
 
-	- **Name**: BinaryTree
+	- **Name**: LinkedList
 
 	- **Problem Statement**:
 	Create a program that shows how inserting and shifting around nodes by creating a LinkedList to test if the nodes are in correct order and proper function usage.
